@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>अन्नपूर्णा (Annapurna) - Track Your Order</title> 
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    </head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="container">
+            <img src="logo.png" alt="Annapurna Logo" class="logo"> <!-- Logo -->
+            <h1>Track Your Order</h1> <!-- Title -->
+            <nav>
+              <a href="index.html"><i class="fas fa-home"></i> Home</a>
+              <a href="Menu.html"><i class="fas fa-utensils"></i> Menu</a>
+              <a href="Spices.html"><i class="fas fa-pepper-hot"></i> Spices</a>
+              <a href="Chefs.html"><i class="fas fa-user-tie"></i> Chefs</a>
+              <a href="recipes.html"><i class="fas fa-book-open"></i> Recipes</a>
+              <a href="order-tracking.html"><i class="fas fa-map-marker-alt"></i> Track Order</a>
+              <a href="Checkout.html"><i class="fas fa-shopping-cart"></i> Checkout</a>
+              <a href="about.html"><i class="fas fa-info-circle"></i> About</a>
+              <a href="contact.html"><i class="fas fa-envelope"></i> Contact</a>
+              <a href="login-registration.html"><i class="fas fa-sign-in-alt"></i> Sign In</a>
+            </nav> 
+            
+        </div>
+    </header>
+  <style>
+    
+    .track-order-section {
+      max-width: 600px;
+      margin: 40px auto;
+      background-color: #fff8e1; /* Light yellow background */
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .track-order-section h1 {
+      text-align: center;
+      font-size: 2em;
+      margin-bottom: 20px;
+    }
+
+    .track-order-section p {
+      text-align: center;
+      margin-bottom: 20px;
+      font-size: 1.1em;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    input {
+      padding: 10px;
+      border: 1px solid #a1887f; /* Soft brown border */
+      border-radius: 4px;
+      font-size: 1em;
+    }
+
+    button {
+      padding: 10px;
+      background-color: #8d6e63; /* Earthy brown button */
+      color: #ffffff;
+      border: none;
+      border-radius: 4px;
+      font-size: 1em;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #6d4c41; /* Darker brown on hover */
+    }
+
+    .order-status {
+      margin-top: 30px;
+      padding: 15px;
+      background-color: #ffffff;
+      border: 1px solid #a1887f;
+      border-radius: 4px;
+      display: none; /* Initially hidden */
+    }
+
+    .order-status.active {
+      display: block;
+    }
+
+    .order-status h2 {
+      margin-bottom: 10px;
+      color: #8d6e63;
+    }
+
+    .order-status p {
+      font-size: 1.1em;
+    }
+
+    .map-container {
+      width: 100%;
+      height: 400px;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+  </style>
+</head>
+<body>
+
+<section class="track-order-section">
+  <p>Enter your Order ID below to check the status of your order.</p>
+
+  <form id="track-order-form">
+    <input type="text" id="order-id" placeholder="Enter your Order ID" required>
+    <button type="button" id="track-order-btn">Track Order</button>
+  </form>
+
+  <div id="order-status" class="order-status">
+    <h2>Order Status</h2>
+    <p id="status-message">Fetching details...</p>
+  </div>
+</section>
+
+<div class="map-container" id="map">
+    <!-- Map placeholder; will integrate with a live map service like Google Maps -->
+    <iframe 
+      width="100%" 
+      height="100%" 
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.8354345093594!2d144.95592631531752!3d-37.8172099797515!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad642af0f11fd81%3A0xf5773e2f27b2c3a9!2sFlinders%20St%20Station!5e0!3m2!1sen!2sau!4v1695575916005!5m2!1sen!2sau" 
+      frameborder="0" 
+      style="border:0;" 
+      allowfullscreen="" 
+      loading="lazy">
+    </iframe>
+  </div>
+</div>
+
+<script>
+  const trackOrderBtn = document.getElementById('track-order-btn');
+  const orderStatus = document.getElementById('order-status');
+  const statusMessage = document.getElementById('status-message');
+
+  trackOrderBtn.addEventListener('click', () => {
+    const orderId = document.getElementById('order-id').value.trim();
+    if (orderId) {
+      orderStatus.classList.add('active');
+      // Simulate fetching order status
+      setTimeout(() => {
+        // Dummy order statuses based on Order ID
+        const dummyStatuses = {
+          '12345': 'Your order has been shipped and will arrive soon!',
+          '67890': 'Your order is being prepared.',
+          '11223': 'Your order has been delivered. Enjoy your meal!',
+        };
+        const status = dummyStatuses[orderId] || 'Order ID not found. Please check and try again.';
+        statusMessage.textContent = status;
+      }, 1000); // Simulate a delay of 1 second
+    } else {
+      alert('Please enter a valid Order ID.');
+    }
+  });
+</script>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="container">
+            <nav>
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="terms.html">Terms of Service</a>
+            <div class="social-media">
+                <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook" width="30" height="30"></a>
+                <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" alt="Twitter" width="30" height="30"></a>
+                <a href="https://www.instagram.com/authentic_annapurna?igsh=MW9jNXo0MTRvOWxpNQ== "><img src="https://cdn-icons-png.flaticon.com/512/733/733558.png" alt="Instagram" width="30" height="30"></a>
+                <a href="mailto:Rushikesh.pattiwar.@adypu.edu.in"><img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="Gmail" width="30" height="30"></a>
+                <a href="https://www.linkedin.com/in/rushikeshpattiwar?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3B7%2Brsoo3yTKGeJOFca3PynQ%3D%3D" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/145/145807.png" alt="LinkedIn" width="30" height="30"></a>
+                <a href="tel:+91-9373095149"><img src="https://cdn-icons-png.flaticon.com/512/724/724664.png" alt="Contact" width="30" height="30"></a>       
+            </div>
+            </nav>
+        </div>
+        <p>&copy; 2024 Annapurna. All rights reserved.</p>
+    </footer>
+
+    <script src="scripts.js"></script>
+</body>
+</html>

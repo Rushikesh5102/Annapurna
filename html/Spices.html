@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>अन्नपूर्णा (Annapurna) - Spices, Masalas & Chutneys</title> 
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    </head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="container">
+            <img src="logo.png" alt="Annapurna Logo" class="logo"> <!-- Logo -->
+            <h1>Spices, Masalas & Chutneys</h1> <!-- Title -->
+            <nav>
+                <a href="index.html"><i class="fas fa-home"></i> Home</a>
+                <a href="Menu.html"><i class="fas fa-utensils"></i> Menu</a>
+                <a href="Spices.html"><i class="fas fa-pepper-hot"></i> Spices</a>
+                <a href="Chefs.html"><i class="fas fa-user-tie"></i> Chefs</a>
+                <a href="recipes.html"><i class="fas fa-book-open"></i> Recipes</a>
+                <a href="order-tracking.html"><i class="fas fa-map-marker-alt"></i> Track Order</a>
+                <a href="Checkout.html"><i class="fas fa-shopping-cart"></i> Checkout</a>
+                <a href="about.html"><i class="fas fa-info-circle"></i> About</a>
+                <a href="contact.html"><i class="fas fa-envelope"></i> Contact</a>
+                <a href="login-registration.html"><i class="fas fa-sign-in-alt"></i> Sign In</a>
+              </nav> 
+              
+        </div>
+    </header>
+</head>
+<body>
+
+  <!-- Filter Section -->
+  <div class="filter-section">
+    <select id="region-filter">
+      <option value="all">All Regions</option>
+      <option value="north-indian">North Indian</option>
+      <option value="south-indian">South Indian</option>
+      <option value="west-indian">West Indian</option>
+      <option value="east-indian">East Indian</option>
+    </select>
+
+    <select id="category-filter">
+      <option value="all">All Categories</option>
+      <option value="spices">Spices</option>
+      <option value="masalas">Masalas</option>
+      <option value="chutneys">Chutneys</option>
+      <option value="thechas">Thechas</option>
+    </select>
+  </div>
+
+  <!-- Spice Cards -->
+  <div class="spice-container" id="spice-list">
+    <div class="spice-card" data-region="north-indian" data-category="spices">
+      <img src="Garam Masala.jpg" alt="Garam Masala">
+      <h3>Garam Masala</h3>
+      <p>Aromatic North Indian spice blend.</p>
+      <p class="price">₹150</p>
+      <button>Add to Cart</button>
+    </div>
+
+    <div class="spice-card" data-region="south-indian" data-category="chutneys">
+      <img src="Cconut Chutney.jpg" alt="Coconut Chutney">
+      <h3>Coconut Chutney</h3>
+      <p>Delicious chutney made from fresh coconut.</p>
+      <p class="price">₹100</p>
+      <button>Add to Cart</button>
+    </div>
+
+    <div class="spice-card" data-region="west-indian" data-category="thechas">
+      <img src="Green thecha.jpg" alt="Green Thecha">
+      <h3>Green Thecha</h3>
+      <p>Fiery chili-based condiment from Maharashtra.</p>
+      <p class="price">₹80</p>
+      <button>Add to Cart</button>
+    </div>
+
+    <!-- Additional Spice Cards -->
+<div class="spice-card" data-region="south-indian" data-category="spices">
+    <img src="Rasam Powder.jpg" alt="Rasam Powder">
+    <h3>Rasam Powder</h3>
+    <p>Aromatic South Indian spice blend for rasam.</p>
+    <p class="price">₹120</p>
+    <button>Add to Cart</button>
+  </div>
+  
+  <div class="spice-card" data-region="west-indian" data-category="masalas">
+    <img src="Goda Masala.jpg" alt="Goda Masala">
+    <h3>Goda Masala</h3>
+    <p>A mild and flavorful masala from Maharashtra.</p>
+    <p class="price">₹140</p>
+    <button>Add to Cart</button>
+  </div>
+  
+  <div class="spice-card" data-region="east-indian" data-category="chutneys">
+    <img src="Tomato Chutney.jpg" alt="Tomato Chutney">
+    <h3>Tomato Chutney</h3>
+    <p>A tangy and spicy chutney from Bengal.</p>
+    <p class="price">₹90</p>
+    <button>Add to Cart</button>
+  </div>
+  
+  <div class="spice-card" data-region="north-indian" data-category="spices">
+    <img src="Chaat Masala.jpg" alt="Chaat Masala">
+    <h3>Chaat Masala</h3>
+    <p>A tangy spice mix perfect for street food dishes.</p>
+    <p class="price">₹80</p>
+    <button>Add to Cart</button>
+  </div>
+  
+  <div class="spice-card" data-region="south-indian" data-category="masalas">
+    <img src="Sambaar Powder.jpg" alt="Sambar Powder">
+    <h3>Sambar Powder</h3>
+    <p>A blend of spices for authentic South Indian sambar.</p>
+    <p class="price">₹130</p>
+    <button>Add to Cart</button>
+  </div>
+  
+  <div class="spice-card" data-region="west-indian" data-category="thechas">
+    <img src="Red Thecha.jpg" alt="Red Thecha">
+    <h3>Red Thecha</h3>
+    <p>A spicy and tangy chili-based thecha.</p>
+    <p class="price">₹100</p>
+    <button>Add to Cart</button>
+  </div>
+  
+  <div class="spice-card" data-region="north-indian" data-category="chutneys">
+    <img src="Mint Chutney.jpg" alt="Mint Chutney">
+    <h3>Mint Chutney</h3>
+    <p>A refreshing chutney made with fresh mint leaves.</p>
+    <p class="price">₹60</p>
+    <button>Add to Cart</button>
+  </div>
+  
+  <div class="spice-card" data-region="east-indian" data-category="spices">
+    <img src="Panch Phoran.jpg" alt="Panch Phoran">
+    <h3>Panch Phoran</h3>
+    <p>A unique blend of five spices used in Bengali cuisine.</p>
+    <p class="price">₹110</p>
+    <button>Add to Cart</button>
+  </div>
+  
+  <div class="spice-card" data-region="south-indian" data-category="chutneys">
+    <img src="Peanut.jpg" alt="Peanut Chutney">
+    <h3>Peanut Chutney</h3>
+    <p>A creamy chutney made from roasted peanuts.</p>
+    <p class="price">₹70</p>
+    <button>Add to Cart</button>
+  </div>
+  
+  <div class="spice-card" data-region="north-indian" data-category="masalas">
+    <img src="Kashmiri Masala.jpg" alt="Kashmiri Masala">
+    <h3>Kashmiri Masala</h3>
+    <p>A fragrant masala blend with mild spices from Kashmir.</p>
+    <p class="price">₹200</p>
+    <button>Add to Cart</button>
+  </div>
+  </div>
+
+  <script>
+    // Filter Functionality
+    const regionFilter = document.getElementById("region-filter");
+    const categoryFilter = document.getElementById("category-filter");
+    const spiceCards = document.querySelectorAll(".spice-card");
+
+    function filterSpices() {
+      const region = regionFilter.value;
+      const category = categoryFilter.value;
+
+      spiceCards.forEach((card) => {
+        const cardRegion = card.getAttribute("data-region");
+        const cardCategory = card.getAttribute("data-category");
+
+        // Show or hide the card based on the filter
+        if (
+          (region === "all" || region === cardRegion) &&
+          (category === "all" || category === cardCategory)
+        ) {
+          card.style.display = "block";
+        } else {
+          card.style.display = "none";
+        }
+      });
+    }
+
+    // Attach filter functionality to the dropdowns
+    regionFilter.addEventListener("change", filterSpices);
+    categoryFilter.addEventListener("change", filterSpices);
+
+    // Initial filter application
+    filterSpices();
+    
+  </script>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="container">
+            <nav>
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="terms.html">Terms of Service</a>
+            <div class="social-media">
+                <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook" width="30" height="30"></a>
+                <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" alt="Twitter" width="30" height="30"></a>
+                <a href="https://www.instagram.com/authentic_annapurna?igsh=MW9jNXo0MTRvOWxpNQ== "><img src="https://cdn-icons-png.flaticon.com/512/733/733558.png" alt="Instagram" width="30" height="30"></a>
+                <a href="mailto:Rushikesh.pattiwar.@adypu.edu.in"><img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="Gmail" width="30" height="30"></a>
+                <a href="https://www.linkedin.com/in/rushikeshpattiwar?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3B7%2Brsoo3yTKGeJOFca3PynQ%3D%3D" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/145/145807.png" alt="LinkedIn" width="30" height="30"></a>
+                <a href="tel:+91-9373095149"><img src="https://cdn-icons-png.flaticon.com/512/724/724664.png" alt="Contact" width="30" height="30"></a>       
+            </div>
+            </nav>
+        </div>
+        <p>&copy; 2024 Annapurna. All rights reserved.</p>
+    </footer>
+
+    <script src="scripts.js"></script>
+    <script src="Spices-Checkout.js"></script>
+</body>
+</html>

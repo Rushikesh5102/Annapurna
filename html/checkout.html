@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>अन्नपूर्णा (Annapurna) - Checkout</title> 
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    </head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="container">
+            <img src="logo.png" alt="Annapurna Logo" class="logo"> <!-- Logo -->
+            <h1>Checkout</h1> <!-- Title -->
+            <nav>
+              <a href="index.html"><i class="fas fa-home"></i> Home</a>
+              <a href="Menu.html"><i class="fas fa-utensils"></i> Menu</a>
+              <a href="Spices.html"><i class="fas fa-pepper-hot"></i> Spices</a>
+              <a href="Chefs.html"><i class="fas fa-user-tie"></i> Chefs</a>
+              <a href="recipes.html"><i class="fas fa-book-open"></i> Recipes</a>
+              <a href="order-tracking.html"><i class="fas fa-map-marker-alt"></i> Track Order</a>
+              <a href="Checkout.html"><i class="fas fa-shopping-cart"></i> Checkout</a>
+              <a href="about.html"><i class="fas fa-info-circle"></i> About</a>
+              <a href="contact.html"><i class="fas fa-envelope"></i> Contact</a>
+              <a href="login-registration.html"><i class="fas fa-sign-in-alt"></i> Sign In</a>
+            </nav> 
+            
+        </div>
+    </header>
+  <style>
+
+    
+  </style>
+</head>
+<body>
+
+<div class="checkout-container">
+  <!-- Order Summary -->
+  <div class="order-summary">
+    <h2>Order Summary</h2>
+    <ul id="cart-items">
+      <!-- Dynamically added cart items -->
+      <li><span>Item Name</span><span>₹100</span></li>
+      <li><span>Another Item</span><span>₹200</span></li>
+      <li class="total"><span>Total</span><span>₹300</span></li>
+    </ul>
+  </div>
+
+  <!-- Checkout Form -->
+  <div class="checkout-form">
+    <h2>Billing Details</h2>
+    <form id="checkout-form">
+      <label for="name">Full Name</label>
+      <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+      <label for="phone">Phone Number</label>
+      <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
+
+      <label for="address">Address</label>
+      <textarea id="address" name="address" rows="4" placeholder="Enter your address" required></textarea>
+
+      <label for="payment">Payment Method</label>
+      <select id="payment" name="payment" required>
+        <option value="credit-card">Credit Card</option>
+        <option value="debit-card">Debit Card</option>
+        <option value="net-banking">Net Banking</option>
+        <option value="cash-on-delivery">Cash on Delivery</option>
+      </select>
+
+      <button id="checkout-button">Place Order</button>
+    </form>
+  </div>
+</div>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="container">
+            <nav>
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="terms.html">Terms of Service</a>
+            <div class="social-media">
+                <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook" width="30" height="30"></a>
+                <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" alt="Twitter" width="30" height="30"></a>
+                <a href="https://www.instagram.com/authentic_annapurna?igsh=MW9jNXo0MTRvOWxpNQ== "><img src="https://cdn-icons-png.flaticon.com/512/733/733558.png" alt="Instagram" width="30" height="30"></a>
+                <a href="mailto:Rushikesh.pattiwar.@adypu.edu.in"><img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="Gmail" width="30" height="30"></a>
+                <a href="https://www.linkedin.com/in/rushikeshpattiwar?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3B7%2Brsoo3yTKGeJOFca3PynQ%3D%3D" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/145/145807.png" alt="LinkedIn" width="30" height="30"></a>
+                <a href="tel:+91-9373095149"><img src="https://cdn-icons-png.flaticon.com/512/724/724664.png" alt="Contact" width="30" height="30"></a>       
+            </div>
+            </nav>
+        </div>
+        <p>&copy; 2024 Annapurna. All rights reserved.</p>
+    </footer>
+    <script>
+// Checkout.js
+// Function to load and display cart items on the checkout page
+function loadCart() {
+  // Retrieve the cart from LocalStorage
+  const cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+  // Reference the cart items container
+  const cartItemsElement = document.getElementById("cart-items");
+
+  // If the cart is empty, display a message
+  if (cart.length === 0) {
+    cartItemsElement.innerHTML = "<li>Your cart is empty.</li>";
+    return;
+  }
+
+  // Generate the cart items list
+  let total = 0;
+  cartItemsElement.innerHTML = cart
+    .map((item) => {
+      total += item.price;
+      return `<li><span>${item.name}</span><span>₹${item.price}</span></li>`;
+    })
+    .join("");
+
+  // Add the total
+  cartItemsElement.innerHTML += `<li class="total"><span>Total</span><span>₹${total}</span></li>`;
+}
+
+// Clear the cart after placing an order
+function clearCart() {
+  localStorage.removeItem("cart");
+  alert("Thank you for your order!");
+  location.reload(); // Refresh the page
+}
+
+// Attach the clear cart functionality to the checkout button
+document.getElementById("checkout-button").addEventListener("click", (e) => {
+  e.preventDefault();
+  clearCart();
+});
+
+// Load the cart when the page loads
+document.addEventListener("DOMContentLoaded", loadCart);
+
+    </script>
+    <script src="scripts.js"></script>
+    <script src="Spices-Checkout.js"></script>
+</body>
+</html>
