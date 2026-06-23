@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>अन्नपूर्णा (Annapurna) - Terms of Service</title> 
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="container">
+            <div class="logo-area">
+                <a href="index.html" class="logo-link">
+                    <img src="../Assets/Images/logo.png" alt="Annapurna Logo" class="logo">
+                    <h1>Terms of Service</h1>
+                </a>
+            </div>
+            <nav>
+                <a href="index.html"><i class="fas fa-home"></i> Home</a>
+                <a href="Menu.html"><i class="fas fa-utensils"></i> Menu</a>
+                <a href="Spices.html"><i class="fas fa-pepper-hot"></i> Spices</a>
+                <a href="Chefs.html"><i class="fas fa-user-tie"></i> Chefs</a>
+                <a href="recipes.html"><i class="fas fa-book-open"></i> Recipes</a>
+                <a href="order-tracking.html"><i class="fas fa-map-marker-alt"></i> Track Order</a>
+                <a href="Checkout.html"><i class="fas fa-shopping-cart"></i> Checkout</a>
+                <a href="about.html"><i class="fas fa-info-circle"></i> About</a>
+                <a href="contact.html"><i class="fas fa-envelope"></i> Contact</a>
+                <a href="login-registration.html"><i class="fas fa-sign-in-alt"></i> Sign In</a>
+            </nav>
+        <button class="hamburger" id="hamburger-btn" aria-label="Toggle menu" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button> 
+        </div>
+        <div class="nav-overlay" id="nav-overlay"></div>
+    </header>
+
+    <!-- Content Section -->
+    <main class="legal-container">
+        <section class="legal-content">
+            <h2>Terms of Service</h2>
+            <p class="last-updated">Last Updated: June 23, 2026</p>
+            
+            <p>Welcome to Annapurna. By using our website and services, you agree to comply with and be bound by the following Terms of Service.</p>
+
+            <h2>1. Usage Terms</h2>
+            <p>Our website is designed to provide access to home-cooked menus, spice selections, and chef recipes. You agree to use the website only for lawful purposes and in a way that does not infringe on the rights of others.</p>
+
+            <h2>2. Accounts and Ordering</h2>
+            <p>When you purchase products or register on our site, you must provide accurate, up-to-date information. You are responsible for safeguarding your credentials and managing your order details.</p>
+
+            <h2>3. Local Partners and Chef Roles</h2>
+            <p>Our partner chefs are responsible for compliance with regional health regulations. We act as a connectivity platform and coordinate quality checks to assure consistent excellence.</p>
+
+            <h2>4. Intellectual Property</h2>
+            <p>All design assets, layout systems, textual elements, recipes, and images are properties of Annapurna or their respective creators. You may not distribute or use them commercially without permission.</p>
+
+            <h2>5. Revisions and Termination</h2>
+            <p>We reserve the right to revise these terms or suspend website access at any point due to server maintenance or policy revisions.</p>
+        </section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="container">
+            <nav>
+                <div class="footer-links">
+                    <a href="privacy.html">Privacy Policy</a>
+                    <a href="terms.html">Terms of Service</a>
+                </div>
+                <div class="social-media">
+                    <a href="https://www.instagram.com/authentic_annapurna?igsh=MW9jNXo0MTRvOWxpNQ==" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="mailto:Rushikesh.pattiwar.@adypu.edu.in" aria-label="Gmail"><i class="far fa-envelope"></i></a>
+                    <a href="https://www.linkedin.com/in/rushikeshpattiwar" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="tel:+91-9373095149" aria-label="Phone"><i class="fas fa-phone-alt"></i></a>       
+                </div>
+            </nav>
+        </div>
+        <p>&copy; 2024 Annapurna. All rights reserved.</p>
+    </footer>
+
+    <script src="../Assets/js/scripts.js"></script>
+
+    <script>
+        // Hamburger menu toggle
+        (function() {
+            var btn = document.getElementById('hamburger-btn');
+            var nav = document.querySelector('header nav');
+            var overlay = document.getElementById('nav-overlay');
+            if (!btn || !nav || !overlay) return;
+
+            function openMenu() {
+                btn.classList.add('open');
+                nav.classList.add('open');
+                overlay.classList.add('open');
+                btn.setAttribute('aria-expanded', 'true');
+                document.body.style.overflow = 'hidden';
+            }
+            function closeMenu() {
+                btn.classList.remove('open');
+                nav.classList.remove('open');
+                overlay.classList.remove('open');
+                btn.setAttribute('aria-expanded', 'false');
+                document.body.style.overflow = '';
+            }
+
+            btn.addEventListener('click', function() {
+                if (nav.classList.contains('open')) closeMenu(); else openMenu();
+            });
+            overlay.addEventListener('click', closeMenu);
+            // Close on nav link click (mobile)
+            nav.querySelectorAll('a').forEach(function(a) {
+                a.addEventListener('click', closeMenu);
+            });
+            // Close on Escape key
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') closeMenu();
+            });
+        })();
+    </script>
+</body>
+</html>

@@ -3,342 +3,501 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>अन्नपूर्णा (Annapurna) - Sign in</title> 
+    <title>अन्नपूर्णा (Annapurna) - Sign In / Sign Up</title> 
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    </head>
-<body>
+</head>
+<body style="display: flex; flex-direction: column; min-height: 100vh; margin: 0;">
+
     <!-- Header Section -->
     <header>
         <div class="container">
-            <img src="logo.png" alt="Annapurna Logo" class="logo"> <!-- Logo -->
-            <h1>Sign In / Sign Up</h1> <!-- Title -->
+            <div class="logo-area">
+                <a href="index.html" class="logo-link">
+                    <img src="../Assets/Images/logo.png" alt="Annapurna Logo" class="logo">
+                    <h1>Sign In / Sign Up</h1>
+                </a>
+            </div>
             <nav>
-              <a href="index.html"><i class="fas fa-home"></i> Home</a>
-              <a href="Menu.html"><i class="fas fa-utensils"></i> Menu</a>
-              <a href="Spices.html"><i class="fas fa-pepper-hot"></i> Spices</a>
-              <a href="Chefs.html"><i class="fas fa-user-tie"></i> Chefs</a>
-              <a href="recipes.html"><i class="fas fa-book-open"></i> Recipes</a>
-              <a href="order-tracking.html"><i class="fas fa-map-marker-alt"></i> Track Order</a>
-              <a href="Checkout.html"><i class="fas fa-shopping-cart"></i> Checkout</a>
-              <a href="about.html"><i class="fas fa-info-circle"></i> About</a>
-              <a href="contact.html"><i class="fas fa-envelope"></i> Contact</a>
-              <a href="login-registration.html"><i class="fas fa-sign-in-alt"></i> Sign In</a>
-            </nav> 
-              
+                <a href="index.html"><i class="fas fa-home"></i> Home</a>
+                <a href="Menu.html"><i class="fas fa-utensils"></i> Menu</a>
+                <a href="Spices.html"><i class="fas fa-pepper-hot"></i> Spices</a>
+                <a href="Chefs.html"><i class="fas fa-user-tie"></i> Chefs</a>
+                <a href="recipes.html"><i class="fas fa-book-open"></i> Recipes</a>
+                <a href="order-tracking.html"><i class="fas fa-map-marker-alt"></i> Track Order</a>
+                <a href="Checkout.html"><i class="fas fa-shopping-cart"></i> Checkout</a>
+                <a href="about.html"><i class="fas fa-info-circle"></i> About</a>
+                <a href="contact.html"><i class="fas fa-envelope"></i> Contact</a>
+                <a href="login-registration.html" class="active"><i class="fas fa-sign-in-alt"></i> Sign In</a>
+            </nav>
+        <button class="hamburger" id="hamburger-btn" aria-label="Toggle menu" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button> 
         </div>
+        <div class="nav-overlay" id="nav-overlay"></div>
     </header>
-    <style>
-        /* Base styling */
-        body {
-            margin: 0;
-            color: #4c3b1f; 
-            background: #f3e9dc; 
-            font-family: "Poppins", sans-serif; 
-        }
 
-        /* Login wrapper */
-        /* Overlay with traditional colors */
-        .login-html {
+    <!-- Main content — flex:1 pushes footer to bottom, textured background surrounds card -->
+    <main style="
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 50px 20px;
+        background-color: #f5ede0;
+        background-image:
+            radial-gradient(circle, rgba(180, 90, 30, 0.18) 1.5px, transparent 1.5px),
+            radial-gradient(circle, rgba(180, 90, 30, 0.08) 1px, transparent 1px);
+        background-size: 28px 28px, 14px 14px;
+        background-position: 0 0, 7px 7px;
+    ">
+
+        <!-- Sign In / Sign Up card — India spices image as background with dark overlay -->
+        <div style="
             width: 100%;
-            height: 100%;
-            position: absolute;
-            padding: 90px 70px 50px 70px;
-            background: rgba(244, 209, 157, 0.85); 
-            backdrop-filter: blur(8px);
-        }
-
-        /* Tabs */
-        /* Form styling */
-        .login-form .group .input, .login-form .group .button {
-            border: none;
-            padding: 15px 20px;
-            border-radius: 25px;
-            background: rgba(139, 69, 19, 0.1); 
-            
-        }
-
-        .login-form .group .input:focus {
-            background: rgba(139, 69, 19, 0.15);
-        }
-
-        .login-form .group .button {
-            background: #d2691e; 
-            cursor: pointer;
-            color: #fff;
-            font-size: 18px;
-            transition: background 0.3s, transform 0.3s;
-        }
-
-        .login-form .group .button:hover {
-            background: #b05214;
-            transform: scale(1.05);
-        }
-
-        /* Checkboxes and icon styling */
-        .login-form .group label .icon {
-            width: 15px;
-            height: 15px;
-            border-radius: 2px;
+            max-width: 440px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 24px 60px rgba(74, 59, 44, 0.40);
             position: relative;
-            display: inline-block;
-            background: rgba(255, 255, 255, 0.1);
+        ">
+            <!-- Background: India spices image + dark brown overlay -->
+            <div style="
+                background:
+                    linear-gradient(
+                        rgba(62, 40, 20, 0.82),
+                        rgba(62, 40, 20, 0.90)
+                    ),
+                    url('../Assets/Images/india-spices.png') no-repeat center center;
+                background-size: cover;
+                padding: 44px 38px 48px;
+                color: #fff;
+                position: relative;
+            ">
+                <!-- Tab radio inputs (hidden) -->
+                <input id="tab-1" type="radio" name="tab" class="sign-in" checked style="display:none;">
+                <input id="tab-2" type="radio" name="tab" class="sign-up" style="display:none;">
+
+                <!-- Tab labels -->
+                <div style="
+                    display: flex;
+                    gap: 28px;
+                    margin-bottom: 30px;
+                    border-bottom: 1px solid rgba(255,255,255,0.12);
+                    padding-bottom: 14px;
+                ">
+                    <label for="tab-1" id="label-signin" style="
+                        font-family: 'Outfit', sans-serif;
+                        font-size: 18px;
+                        font-weight: 700;
+                        cursor: pointer;
+                        color: #d2691e;
+                        border-bottom: 2px solid #d2691e;
+                        padding-bottom: 4px;
+                        margin-bottom: -15px;
+                        transition: all 0.25s;
+                        letter-spacing: 0.3px;
+                    ">Sign In</label>
+                    <label for="tab-2" id="label-signup" style="
+                        font-family: 'Outfit', sans-serif;
+                        font-size: 18px;
+                        font-weight: 700;
+                        cursor: pointer;
+                        color: rgba(244, 235, 217, 0.7);
+                        border-bottom: 2px solid transparent;
+                        padding-bottom: 4px;
+                        margin-bottom: -15px;
+                        transition: all 0.25s;
+                        letter-spacing: 0.3px;
+                    ">Sign Up</label>
+                </div>
+
+                <!-- ===== SIGN IN PANEL ===== -->
+                <div id="sign-in-panel" style="display: block;">
+                    <div style="margin-bottom: 18px;">
+                        <label style="
+                            display: block;
+                            color: rgba(244,235,217,0.85);
+                            font-size: 12px;
+                            font-weight: 600;
+                            letter-spacing: 0.6px;
+                            margin-bottom: 7px;
+                            font-family: 'Outfit', sans-serif;
+                            text-transform: uppercase;
+                        ">Email</label>
+                        <input id="email" type="text" placeholder="" style="
+                            width: 100%;
+                            box-sizing: border-box;
+                            background: rgba(0, 0, 0, 0.35);
+                            border: 1px solid rgba(255,255,255,0.10);
+                            border-radius: 10px;
+                            padding: 12px 16px;
+                            color: #fff;
+                            font-family: 'Poppins', sans-serif;
+                            font-size: 14px;
+                            outline: none;
+                            transition: border-color 0.25s, background 0.25s;
+                        "
+                        onfocus="this.style.borderColor='#d2691e'; this.style.background='rgba(0,0,0,0.48)';"
+                        onblur="this.style.borderColor='rgba(255,255,255,0.10)'; this.style.background='rgba(0,0,0,0.35)';">
+                        <div id="emailError" style="color: #ff9f43; font-size: 11px; margin-top: 5px;"></div>
+                    </div>
+
+                    <div style="margin-bottom: 18px;">
+                        <label style="
+                            display: block;
+                            color: rgba(244,235,217,0.85);
+                            font-size: 12px;
+                            font-weight: 600;
+                            letter-spacing: 0.6px;
+                            margin-bottom: 7px;
+                            font-family: 'Outfit', sans-serif;
+                            text-transform: uppercase;
+                        ">Password</label>
+                        <input id="password" type="password" data-type="password" placeholder="" style="
+                            width: 100%;
+                            box-sizing: border-box;
+                            background: rgba(0, 0, 0, 0.35);
+                            border: 1px solid rgba(255,255,255,0.10);
+                            border-radius: 10px;
+                            padding: 12px 16px;
+                            color: #fff;
+                            font-family: 'Poppins', sans-serif;
+                            font-size: 14px;
+                            outline: none;
+                            transition: border-color 0.25s, background 0.25s;
+                        "
+                        onfocus="this.style.borderColor='#d2691e'; this.style.background='rgba(0,0,0,0.48)';"
+                        onblur="this.style.borderColor='rgba(255,255,255,0.10)'; this.style.background='rgba(0,0,0,0.35)';">
+                        <div id="passwordError" style="color: #ff9f43; font-size: 11px; margin-top: 5px;"></div>
+                    </div>
+
+                    <div style="margin-bottom: 26px; display: flex; align-items: center; gap: 9px;">
+                        <input id="check" type="checkbox" checked style="
+                            width: 16px; height: 16px;
+                            accent-color: #d2691e;
+                            cursor: pointer;
+                            flex-shrink: 0;
+                        ">
+                        <label for="check" style="
+                            font-size: 13px;
+                            color: rgba(244,235,217,0.75);
+                            cursor: pointer;
+                            font-family: 'Poppins', sans-serif;
+                        ">Keep me Signed in</label>
+                    </div>
+
+                    <button id="signInButton" type="button" style="
+                        padding: 12px 36px;
+                        background: #d2691e;
+                        color: #fff;
+                        border: none;
+                        border-radius: 50px;
+                        font-size: 15px;
+                        font-weight: 600;
+                        cursor: pointer;
+                        font-family: 'Outfit', sans-serif;
+                        letter-spacing: 0.4px;
+                        box-shadow: 0 6px 18px rgba(210,105,30,0.45);
+                        transition: background 0.25s, transform 0.2s, box-shadow 0.25s;
+                    "
+                    onmouseover="this.style.background='#b05214'; this.style.transform='translateY(-1px)'; this.style.boxShadow='0 8px 22px rgba(210,105,30,0.55)';"
+                    onmouseout="this.style.background='#d2691e'; this.style.transform='translateY(0)'; this.style.boxShadow='0 6px 18px rgba(210,105,30,0.45)';">
+                        Sign In
+                    </button>
+                </div>
+
+                <!-- ===== SIGN UP PANEL ===== -->
+                <div id="sign-up-panel" style="display: none;">
+                    <div style="margin-bottom: 16px;">
+                        <label style="
+                            display: block;
+                            color: rgba(244,235,217,0.85);
+                            font-size: 12px;
+                            font-weight: 600;
+                            letter-spacing: 0.6px;
+                            margin-bottom: 7px;
+                            font-family: 'Outfit', sans-serif;
+                            text-transform: uppercase;
+                        ">Email</label>
+                        <input id="regEmail" type="text" style="
+                            width: 100%;
+                            box-sizing: border-box;
+                            background: rgba(0,0,0,0.35);
+                            border: 1px solid rgba(255,255,255,0.10);
+                            border-radius: 10px;
+                            padding: 12px 16px;
+                            color: #fff;
+                            font-family: 'Poppins', sans-serif;
+                            font-size: 14px;
+                            outline: none;
+                        "
+                        onfocus="this.style.borderColor='#d2691e'; this.style.background='rgba(0,0,0,0.48)';"
+                        onblur="this.style.borderColor='rgba(255,255,255,0.10)'; this.style.background='rgba(0,0,0,0.35)';">
+                        <div id="regEmailError" style="color: #ff9f43; font-size: 11px; margin-top: 5px;"></div>
+                    </div>
+
+                    <div style="margin-bottom: 16px;">
+                        <label style="
+                            display: block;
+                            color: rgba(244,235,217,0.85);
+                            font-size: 12px;
+                            font-weight: 600;
+                            letter-spacing: 0.6px;
+                            margin-bottom: 7px;
+                            font-family: 'Outfit', sans-serif;
+                            text-transform: uppercase;
+                        ">Password</label>
+                        <input id="regPassword" type="password" data-type="password" style="
+                            width: 100%;
+                            box-sizing: border-box;
+                            background: rgba(0,0,0,0.35);
+                            border: 1px solid rgba(255,255,255,0.10);
+                            border-radius: 10px;
+                            padding: 12px 16px;
+                            color: #fff;
+                            font-family: 'Poppins', sans-serif;
+                            font-size: 14px;
+                            outline: none;
+                        "
+                        onfocus="this.style.borderColor='#d2691e'; this.style.background='rgba(0,0,0,0.48)';"
+                        onblur="this.style.borderColor='rgba(255,255,255,0.10)'; this.style.background='rgba(0,0,0,0.35)';">
+                        <div id="regPasswordError" style="color: #ff9f43; font-size: 11px; margin-top: 5px;"></div>
+                    </div>
+
+                    <div style="margin-bottom: 16px;">
+                        <label style="
+                            display: block;
+                            color: rgba(244,235,217,0.85);
+                            font-size: 12px;
+                            font-weight: 600;
+                            letter-spacing: 0.6px;
+                            margin-bottom: 7px;
+                            font-family: 'Outfit', sans-serif;
+                            text-transform: uppercase;
+                        ">Confirm Password</label>
+                        <input id="confirmPassword" type="password" data-type="password" style="
+                            width: 100%;
+                            box-sizing: border-box;
+                            background: rgba(0,0,0,0.35);
+                            border: 1px solid rgba(255,255,255,0.10);
+                            border-radius: 10px;
+                            padding: 12px 16px;
+                            color: #fff;
+                            font-family: 'Poppins', sans-serif;
+                            font-size: 14px;
+                            outline: none;
+                        "
+                        onfocus="this.style.borderColor='#d2691e'; this.style.background='rgba(0,0,0,0.48)';"
+                        onblur="this.style.borderColor='rgba(255,255,255,0.10)'; this.style.background='rgba(0,0,0,0.35)';">
+                        <div id="confirmPasswordError" style="color: #ff9f43; font-size: 11px; margin-top: 5px;"></div>
+                    </div>
+
+                    <div style="margin-bottom: 24px;">
+                        <label style="
+                            display: block;
+                            color: rgba(244,235,217,0.85);
+                            font-size: 12px;
+                            font-weight: 600;
+                            letter-spacing: 0.6px;
+                            margin-bottom: 7px;
+                            font-family: 'Outfit', sans-serif;
+                            text-transform: uppercase;
+                        ">Role</label>
+                        <select id="role" style="
+                            width: 100%;
+                            box-sizing: border-box;
+                            background: rgba(0,0,0,0.35);
+                            border: 1px solid rgba(255,255,255,0.10);
+                            border-radius: 10px;
+                            padding: 12px 16px;
+                            color: rgba(244,235,217,0.9);
+                            font-family: 'Poppins', sans-serif;
+                            font-size: 14px;
+                            outline: none;
+                        ">
+                            <option value="user" style="background: #3e2814; color: #fff;">User</option>
+                            <option value="admin" style="background: #3e2814; color: #fff;">Service Provider</option>
+                        </select>
+                    </div>
+
+                    <button id="signUpButton" type="button" style="
+                        padding: 12px 36px;
+                        background: #d2691e;
+                        color: #fff;
+                        border: none;
+                        border-radius: 50px;
+                        font-size: 15px;
+                        font-weight: 600;
+                        cursor: pointer;
+                        font-family: 'Outfit', sans-serif;
+                        letter-spacing: 0.4px;
+                        box-shadow: 0 6px 18px rgba(210,105,30,0.45);
+                        transition: background 0.25s, transform 0.2s;
+                    "
+                    onmouseover="this.style.background='#b05214'; this.style.transform='translateY(-1px)';"
+                    onmouseout="this.style.background='#d2691e'; this.style.transform='translateY(0)';">
+                        Sign Up
+                    </button>
+                </div>
+
+            </div><!-- end card inner -->
+        </div><!-- end card -->
+    </main>
+
+    <!-- Footer — stays at bottom because body is flex column + main has flex:1 -->
+    <footer>
+        <div class="container">
+            <nav>
+                <div class="footer-links">
+                    <a href="privacy.html">Privacy Policy</a>
+                    <a href="terms.html">Terms of Service</a>
+                </div>
+                <div class="social-media">
+                    <a href="https://www.instagram.com/authentic_annapurna?igsh=MW9jNXo0MTRvOWxpNQ==" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="mailto:Rushikesh.pattiwar.@adypu.edu.in" aria-label="Gmail"><i class="far fa-envelope"></i></a>
+                    <a href="https://www.linkedin.com/in/rushikeshpattiwar" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="tel:+91-9373095149" aria-label="Phone"><i class="fas fa-phone-alt"></i></a>
+                </div>
+            </nav>
+        </div>
+        <p>&copy; 2024 Annapurna. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // ---- Tab switching ----
+        const tab1 = document.getElementById('tab-1');
+        const tab2 = document.getElementById('tab-2');
+        const labelSignin = document.getElementById('label-signin');
+        const labelSignup = document.getElementById('label-signup');
+        const signInPanel = document.getElementById('sign-in-panel');
+        const signUpPanel = document.getElementById('sign-up-panel');
+
+        function updateTabs() {
+            if (tab1.checked) {
+                signInPanel.style.display = 'block';
+                signUpPanel.style.display = 'none';
+                labelSignin.style.color = '#d2691e';
+                labelSignin.style.borderBottom = '2px solid #d2691e';
+                labelSignup.style.color = 'rgba(244,235,217,0.7)';
+                labelSignup.style.borderBottom = '2px solid transparent';
+            } else {
+                signInPanel.style.display = 'none';
+                signUpPanel.style.display = 'block';
+                labelSignup.style.color = '#d2691e';
+                labelSignup.style.borderBottom = '2px solid #d2691e';
+                labelSignin.style.color = 'rgba(244,235,217,0.7)';
+                labelSignin.style.borderBottom = '2px solid transparent';
+            }
+        }
+        tab1.addEventListener('change', updateTabs);
+        tab2.addEventListener('change', updateTabs);
+
+        // ---- Validation helpers ----
+        function validateEmail(email) {
+            return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(email).toLowerCase());
         }
 
-        .login-form .group label .icon:before, .login-form .group label .icon:after {
-            content: "";
-            width: 10px;
-            height: 2px;
-            background: #4c3b1f;
-            position: absolute;
-            transition: all 0.2s ease-in-out 0s;
+        function showPopup(message, type) {
+            const el = document.createElement('div');
+            el.textContent = message;
+            Object.assign(el.style, {
+                position: 'fixed', top: '20px', right: '20px',
+                padding: '12px 24px', borderRadius: '8px', color: '#fff',
+                zIndex: '9999', fontFamily: 'Poppins, sans-serif', fontSize: '14px',
+                boxShadow: '0 4px 15px rgba(0,0,0,0.2)', transition: 'opacity 0.4s ease',
+                background: type === 'success' ? '#28a745' : type === 'error' ? '#dc3545' : '#17a2b8'
+            });
+            document.body.appendChild(el);
+            setTimeout(() => { el.style.opacity = '0'; setTimeout(() => el.remove(), 400); }, 3000);
         }
 
-        .login-form .group label .icon:before {
-            left: 3px;
-            width: 5px;
-            bottom: 6px;
-            transform: scale(0) rotate(0);
-        }
+        // ---- Sign In ----
+        document.getElementById('signInButton').addEventListener('click', function () {
+            const email = document.getElementById('email').value.trim();
+            const password = document.getElementById('password').value.trim();
+            document.getElementById('emailError').textContent = '';
+            document.getElementById('passwordError').textContent = '';
+            let valid = true;
+            if (!validateEmail(email)) {
+                document.getElementById('emailError').textContent = 'Invalid email format';
+                showPopup('Invalid email format', 'error'); valid = false;
+            }
+            if (password.length < 6) {
+                document.getElementById('passwordError').textContent = 'Password must be at least 6 characters';
+                showPopup('Password must be at least 6 characters', 'error'); valid = false;
+            }
+            if (valid) {
+                const creds = { 'rushikesh.pattiwar@adypu.edu.in': 'Rushikesh@10' };
+                if (creds[email] && creds[email] === password) showPopup('Welcome Owner!', 'success');
+                else showPopup('User not found or incorrect password', 'error');
+            }
+        });
 
-        .login-form .group label .icon:after {
-            top: 6px;
-            right: 0;
-            transform: scale(0) rotate(0);
-        }
+        // ---- Sign Up ----
+        document.getElementById('signUpButton').addEventListener('click', function () {
+            const regEmail = document.getElementById('regEmail').value.trim();
+            const regPassword = document.getElementById('regPassword').value.trim();
+            const confirmPassword = document.getElementById('confirmPassword').value.trim();
+            document.getElementById('regEmailError').textContent = '';
+            document.getElementById('regPasswordError').textContent = '';
+            document.getElementById('confirmPasswordError').textContent = '';
+            let valid = true;
+            if (!validateEmail(regEmail)) {
+                document.getElementById('regEmailError').textContent = 'Invalid email format';
+                showPopup('Invalid email format', 'error'); valid = false;
+            }
+            if (regPassword.length < 6) {
+                document.getElementById('regPasswordError').textContent = 'Password must be at least 6 characters';
+                showPopup('Password too short', 'error'); valid = false;
+            }
+            if (regPassword !== confirmPassword) {
+                document.getElementById('confirmPasswordError').textContent = 'Passwords do not match';
+                showPopup('Passwords do not match', 'error'); valid = false;
+            }
+            if (valid) showPopup('Sign Up successful!', 'success');
+        });
+    </script>
+    <script src="../Assets/js/scripts.js"></script>
 
-        .login-form .group .check:checked + label {
-            color: #fff;
-        }
+    <script>
+        // Hamburger menu toggle
+        (function() {
+            var btn = document.getElementById('hamburger-btn');
+            var nav = document.querySelector('header nav');
+            var overlay = document.getElementById('nav-overlay');
+            if (!btn || !nav || !overlay) return;
 
-        .login-form .group .check:checked + label .icon {
-            background: #d2691e;
-        }
-
-        .login-form .group .check:checked + label .icon:before {
-            transform: scale(1) rotate(45deg);
-        }
-
-        .login-form .group .check:checked + label .icon:after {
-            transform: scale(1) rotate(-45deg);
-        }        
-
-        /* Button animations */
-
-        .login-html .tab {
-                font-family: "Georgia", serif;
-                font-size: 20px;
-                color: #d2691e;
-                cursor: pointer;
-                transition: color 0.3s, border-color 0.3s;
+            function openMenu() {
+                btn.classList.add('open');
+                nav.classList.add('open');
+                overlay.classList.add('open');
+                btn.setAttribute('aria-expanded', 'true');
+                document.body.style.overflow = 'hidden';
+            }
+            function closeMenu() {
+                btn.classList.remove('open');
+                nav.classList.remove('open');
+                overlay.classList.remove('open');
+                btn.setAttribute('aria-expanded', 'false');
+                document.body.style.overflow = '';
             }
 
-            .login-html .tab:hover {
-                color: #b05214;
-                border-color: #b05214;
-            }
-            .popup-container {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            background-color: #333;
-            color: #fff;
-            padding: 15px;
-            border-radius: 5px;
-            z-index: 1000;
-            opacity: 1;
-            transition: opacity 0.5s;
-        }
-
-        .popup-container.success {
-            background-color: #28a745;
-        }
-
-        .popup-container.error {
-            background-color: #dc3545;
-        }
-
-        .popup-container.info {
-            background-color: #17a2b8;
-        }
-
-        .popup-container.fade-out {
-            opacity: 0;
-        }
-    </style>
-</head>
-<body>
-    <main>
-      <div class="login-wrap">
-          <div class="login-html">
-              <input id="tab-1" type="radio" name="tab" class=" sign-in" checked>
-              <label for="tab-1" class="tab">Sign In</label>
-              <input id="tab-2" type="radio" name="tab" class="sign-up">
-              <label for="tab-2" class="tab">Sign Up</label>
-              <div class="login-form">
-                  <div class="sign-in-htm">
-                      <div class="group">
-                          <label for="email" class="label">Email</label>
-                          <input id="email" type="text" class="input">
-                          <div id="emailError" class="error-message"></div>
-                      </div>
-                      <div class="group">
-                          <label for="password" class="label">Password</label>
-                          <input id="password" type="password" class="input" data-type="password">
-                          <div id="passwordError" class="error-message"></div>
-                      </div>
-                      <div class="group">
-                          <input id="check" type="checkbox" class="check" checked>
-                          <label for="check"><span class="icon"></span> Keep me Signed in</label>
-                      </div>
-                      <div class="group">
-                          <input type="submit" class="button" value="Sign In" id="signInButton">
-                      </div>
-                  </div>
-                  <div class="sign-up-htm">
-                      <div class="group">
-                          <label for="regEmail" class="label">Email</label>
-                          <input id="regEmail" type="text" class="input">
-                          <div id="regEmailError" class="error-message"></div>
-                      </div>
-                      <div class="group">
-                          <label for="regPassword" class="label">Password</label>
-                          <input id="regPassword" type="password" class="input" data-type="password">
-                          <div id="regPasswordError" class="error-message"></div>
-                      </div>
-                      <div class="group">
-                          <label for="confirmPassword" class="label">Confirm Password</label>
-                          <input id="confirmPassword" type="password" class="input" data-type="password">
-                          <div id="confirmPasswordError" class="error-message"></div>
-                      </div>
-                      <div class="group">
-                          <label for="role" class="label">Role</label>
-                          <select id="role" class="input">
-                              <option value="user">User </option>
-                              <option value="admin">Service Provider</option>
-                          </select>
-                      </div>
-                      <div class="group">
-                          <input type="submit" class="button" value="Sign Up" id="signUpButton">
-                      </div>
-                      <div class="hr"></div>
-                  </div>
-              </div>
-          </div>
-      </div>
-  </main>
-  <script>
-      function validateEmail(email) {
-          const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-          return re.test(String(email).toLowerCase());
-      }
-  
-      function showPopupMessage(message, type = 'info') {
-          const popupContainer = document.createElement('div');
-          popupContainer.className = `popup-container ${type}`;
-          popupContainer.textContent = message;
-  
-          document.body.appendChild(popupContainer);
-          popupContainer.style.display = 'block'; // Show the popup
-  
-          setTimeout(() => {
-              popupContainer.classList.add('fade-out');
-              setTimeout(() => document.body.removeChild(popupContainer), 500);
-          }, 3000);
-      }
-  
-      document.getElementById('signInButton').addEventListener('click', function(event) {
-  event.preventDefault(); // Prevent form submission
-
-  let email = document.getElementById('email').value;
-  let password = document.getElementById('password').value;
-  let emailError = document.getElementById('emailError');
-  let passwordError = document.getElementById('passwordError');
-
-  emailError.textContent = ''; // Clear previous error messages
-  passwordError.textContent = '';
-
-  let isValid = true; // Flag to track validation
-
-  // Validate email
-  if (!validateEmail(email)) {
-      emailError.textContent = 'Invalid email format';
-      showPopupMessage('Invalid email format', 'error');
-      isValid = false; // Set flag to false if validation fails
-  }
-
-  // Validate password length
-  if (password.length < 6) {
-      passwordError.textContent = 'Password must be at least 6 characters';
-      showPopupMessage('Password must be at least 6 characters', 'error');
-      isValid = false; // Set flag to false if validation fails
-}
-
-// Check if both validations passed
-if (isValid) {
-  // Verify credentials (replace with your actual verification logic)
-  const validCredentials = {
-      'rushikesh.pattiwar@adypu.edu.in': 'Rushikesh@10',
-      // Add more valid credentials here
-  };
-
-  // Move the else here, ensuring it corresponds to an if block
-  if (validCredentials[email] && validCredentials[email] === password) {
-      showPopupMessage('Welcome Owner!', 'success');
-  } else {
-      showPopupMessage('User not found or incorrect password', 'error');
-  }
-} else {
-  showPopupMessage('Sign in successful', 'error'); // This should ideally be rephrased since it triggers on invalid input
-}
-
-});
-
-document.getElementById('signUpButton').addEventListener('click', function(event) {
-  event.preventDefault();
-  let regEmail = document.getElementById('regEmail').value;
-  let regPassword = document.getElementById('regPassword').value;
-  let confirmPassword = document.getElementById('confirmPassword').value;
-  let regEmailError = document.getElementById('regEmailError');
-  let regPasswordError = document.getElementById('regPasswordError');
-  let confirmPasswordError = document.getElementById('confirmPasswordError');
-  regEmailError.textContent = '';
-  regPasswordError.textContent = '';
-  confirmPasswordError.textContent = '';
-
-  if (!validateEmail(regEmail)) {
-      regEmailError.textContent = 'Invalid email format';
-      showPopupMessage('Invalid email format', 'error');
-  }
-  if (regPassword.length < 6) {
-      regPasswordError.textContent = 'Password must be at least 6 characters';
-      showPopupMessage('Password must be at least 6 characters', 'error');
-  }
-  if (regPassword !== confirmPassword) {
-      confirmPasswordError.textContent = 'Passwords do not match';
-      showPopupMessage('Passwords do not match', 'error');
-  }
-  if (validateEmail(regEmail) && regPassword.length >= 6 && regPassword === confirmPassword) {
-      showPopupMessage('Sign Up successful', 'success');
-  }
-});
-
-function validateEmail(email) {
-  const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  return re.test(String(email).toLowerCase());
-}
-
-  </script>
-  <footer>
-      <p>&copy; 2024 Annapurna. All rights reserved.</p>
-      <div class="social-media">
-          <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook" width="30" height="30"></a>
-          <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" alt="Twitter" width="30" height="30"></a>
-          <a href="https://www.instagram.com/authentic_annapurna?igsh=MW9jNXo0MTRvOWxpNQ== "><img src="https://cdn-icons-png.flaticon.com/512/733/733558.png" alt="Instagram" width="30" height="30"></a>
-          <a href="mailto:Rushikesh.pattiwar.@adypu.edu.in"><img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="Gmail" width="30" height="30"></a>
-          <a href="https://www.linkedin.com/in/rushikeshpattiwar?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3B7%2Brsoo3yTKGeJOFca3PynQ%3D%3D" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/145/145807.png" alt="LinkedIn" width="30" height="30"></a>
-          <a href="tel:+91-9373095149"><img src="https://cdn-icons-png.flaticon.com/512/724/724664.png" alt="Contact" width="30" height="30"></a>       
-      </div>
-  </footer>
+            btn.addEventListener('click', function() {
+                if (nav.classList.contains('open')) closeMenu(); else openMenu();
+            });
+            overlay.addEventListener('click', closeMenu);
+            // Close on nav link click (mobile)
+            nav.querySelectorAll('a').forEach(function(a) {
+                a.addEventListener('click', closeMenu);
+            });
+            // Close on Escape key
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') closeMenu();
+            });
+        })();
+    </script>
 </body>
 </html>

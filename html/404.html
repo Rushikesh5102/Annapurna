@@ -5,28 +5,103 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>404 - Page Not Found - Annapurna</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
+    <!-- Header Section -->
     <header>
-        <h1>404 - Page Not Found</h1>
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="product.html">Products</a>
-            <a href="checkout.html">Checkout</a>
-            <a href="order-tracking.html">Track Order</a>
-            <a href="login.html">Login/Register</a>
-        </nav>
+        <div class="container">
+            <div class="logo-area">
+                <a href="index.html" class="logo-link">
+                    <img src="../Assets/Images/logo.png" alt="Annapurna Logo" class="logo">
+                    <h1>Page Not Found</h1>
+                </a>
+            </div>
+            <nav>
+                <a href="index.html"><i class="fas fa-home"></i> Home</a>
+                <a href="Menu.html"><i class="fas fa-utensils"></i> Menu</a>
+                <a href="Spices.html"><i class="fas fa-pepper-hot"></i> Spices</a>
+                <a href="Chefs.html"><i class="fas fa-user-tie"></i> Chefs</a>
+                <a href="recipes.html"><i class="fas fa-book-open"></i> Recipes</a>
+                <a href="order-tracking.html"><i class="fas fa-map-marker-alt"></i> Track Order</a>
+                <a href="Checkout.html"><i class="fas fa-shopping-cart"></i> Checkout</a>
+                <a href="about.html"><i class="fas fa-info-circle"></i> About</a>
+                <a href="contact.html"><i class="fas fa-envelope"></i> Contact</a>
+                <a href="login-registration.html"><i class="fas fa-sign-in-alt"></i> Sign In</a>
+            </nav>
+        <button class="hamburger" id="hamburger-btn" aria-label="Toggle menu" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button> 
+        </div>
+        <div class="nav-overlay" id="nav-overlay"></div>
     </header>
+
     <main>
         <section id="error-message">
             <h2>Oops! The page you are looking for does not exist.</h2>
             <p>It might have been moved or deleted. Please check the URL or return to the <a href="index.html">homepage</a>.</p>
         </section>
     </main>
+
+    <!-- Footer Section -->
     <footer>
+        <div class="container">
+            <nav>
+                <div class="footer-links">
+                    <a href="privacy.html">Privacy Policy</a>
+                    <a href="terms.html">Terms of Service</a>
+                </div>
+                <div class="social-media">
+                    <a href="https://www.instagram.com/authentic_annapurna?igsh=MW9jNXo0MTRvOWxpNQ==" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="mailto:Rushikesh.pattiwar.@adypu.edu.in" aria-label="Gmail"><i class="far fa-envelope"></i></a>
+                    <a href="https://www.linkedin.com/in/rushikeshpattiwar" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="tel:+91-9373095149" aria-label="Phone"><i class="fas fa-phone-alt"></i></a>       
+                </div>
+            </nav>
+        </div>
         <p>&copy; 2024 Annapurna. All rights reserved.</p>
     </footer>
-    <script src="scripts.js"></script>
 
+    <script src="../Assets/js/scripts.js"></script>
+
+    <script>
+        // Hamburger menu toggle
+        (function() {
+            var btn = document.getElementById('hamburger-btn');
+            var nav = document.querySelector('header nav');
+            var overlay = document.getElementById('nav-overlay');
+            if (!btn || !nav || !overlay) return;
+
+            function openMenu() {
+                btn.classList.add('open');
+                nav.classList.add('open');
+                overlay.classList.add('open');
+                btn.setAttribute('aria-expanded', 'true');
+                document.body.style.overflow = 'hidden';
+            }
+            function closeMenu() {
+                btn.classList.remove('open');
+                nav.classList.remove('open');
+                overlay.classList.remove('open');
+                btn.setAttribute('aria-expanded', 'false');
+                document.body.style.overflow = '';
+            }
+
+            btn.addEventListener('click', function() {
+                if (nav.classList.contains('open')) closeMenu(); else openMenu();
+            });
+            overlay.addEventListener('click', closeMenu);
+            // Close on nav link click (mobile)
+            nav.querySelectorAll('a').forEach(function(a) {
+                a.addEventListener('click', closeMenu);
+            });
+            // Close on Escape key
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') closeMenu();
+            });
+        })();
+    </script>
 </body>
 </html>

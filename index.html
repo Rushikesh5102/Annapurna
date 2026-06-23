@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="refresh" content="0; url=html/index.html" />
+    <title>Redirecting to Annapurna</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #1f1c2c 0%, #928dab 100%);
+            font-family: 'Outfit', 'Inter', sans-serif;
+            color: #ffffff;
+            text-align: center;
+        }
+        .container {
+            padding: 2rem;
+            border-radius: 16px;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        }
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        p {
+            font-size: 1.1rem;
+            opacity: 0.8;
+            margin-bottom: 2rem;
+        }
+        a {
+            color: #ff9f43;
+            text-decoration: none;
+            font-weight: bold;
+            border-bottom: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+        a:hover {
+            border-bottom: 2px solid #ff9f43;
+        }
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 5px solid rgba(255, 255, 255, 0.1);
+            border-top-color: #ff9f43;
+            border-radius: 50%;
+            animation: spin 1s infinite linear;
+            margin: 0 auto 1.5rem auto;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="spinner"></div>
+        <h1>अन्नपूर्णा (Annapurna)</h1>
+        <p>Connecting you to the tastes of tradition. Redirecting to home page...</p>
+        <p>If you are not redirected automatically, please click <a href="html/index.html">here</a>.</p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>अन्नपूर्णा (Annapurna) - Privacy Policy</title> 
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="container">
+            <div class="logo-area">
+                <a href="index.html" class="logo-link">
+                    <img src="../Assets/Images/logo.png" alt="Annapurna Logo" class="logo">
+                    <h1>Privacy Policy</h1>
+                </a>
+            </div>
+            <nav>
+                <a href="index.html"><i class="fas fa-home"></i> Home</a>
+                <a href="Menu.html"><i class="fas fa-utensils"></i> Menu</a>
+                <a href="Spices.html"><i class="fas fa-pepper-hot"></i> Spices</a>
+                <a href="Chefs.html"><i class="fas fa-user-tie"></i> Chefs</a>
+                <a href="recipes.html"><i class="fas fa-book-open"></i> Recipes</a>
+                <a href="order-tracking.html"><i class="fas fa-map-marker-alt"></i> Track Order</a>
+                <a href="Checkout.html"><i class="fas fa-shopping-cart"></i> Checkout</a>
+                <a href="about.html"><i class="fas fa-info-circle"></i> About</a>
+                <a href="contact.html"><i class="fas fa-envelope"></i> Contact</a>
+                <a href="login-registration.html"><i class="fas fa-sign-in-alt"></i> Sign In</a>
+            </nav>
+        <button class="hamburger" id="hamburger-btn" aria-label="Toggle menu" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button> 
+        </div>
+        <div class="nav-overlay" id="nav-overlay"></div>
+    </header>
+
+    <!-- Content Section -->
+    <main class="legal-container">
+        <section class="legal-content">
+            <h2>Privacy Policy</h2>
+            <p class="last-updated">Last Updated: June 23, 2026</p>
+            
+            <p>At Annapurna, we value your privacy and are committed to protecting your personal data. This Privacy Policy explains how we collect, use, and share information when you use our website.</p>
+
+            <h2>1. Information We Collect</h2>
+            <p>We collect personal information that you provide to us directly, such as when you place an order, create an account, register as a chef, or contact us. This information includes your name, email address, phone number, shipping address, and payment options.</p>
+
+            <h2>2. How We Use Your Information</h2>
+            <p>We use the collected data to process and track your orders, verify chef registrations, improve our menu catalog, send customer support alerts, and personalize your experience with Indian culinary traditions.</p>
+
+            <h2>3. Local Storage and Cookies</h2>
+            <p>We use browser local storage to maintain your interactive shopping cart contents locally. We do not use tracking cookies for third-party advertising profile collection.</p>
+
+            <h2>4. Security of Your Data</h2>
+            <p>We implement standard security measures to safeguard your details online. However, please remember that no transmission method over the internet is 100% secure.</p>
+
+            <h2>5. Contact Us</h2>
+            <p>If you have any questions about this policy, please reach out to us at <a href="mailto:Rushikesh.pattiwar.@adypu.edu.in">Rushikesh.pattiwar.@adypu.edu.in</a>.</p>
+        </section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="container">
+            <nav>
+                <div class="footer-links">
+                    <a href="privacy.html">Privacy Policy</a>
+                    <a href="terms.html">Terms of Service</a>
+                </div>
+                <div class="social-media">
+                    <a href="https://www.instagram.com/authentic_annapurna?igsh=MW9jNXo0MTRvOWxpNQ==" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="mailto:Rushikesh.pattiwar.@adypu.edu.in" aria-label="Gmail"><i class="far fa-envelope"></i></a>
+                    <a href="https://www.linkedin.com/in/rushikeshpattiwar" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="tel:+91-9373095149" aria-label="Phone"><i class="fas fa-phone-alt"></i></a>       
+                </div>
+            </nav>
+        </div>
+        <p>&copy; 2024 Annapurna. All rights reserved.</p>
+    </footer>
+
+    <script src="../Assets/js/scripts.js"></script>
+
+    <script>
+        // Hamburger menu toggle
+        (function() {
+            var btn = document.getElementById('hamburger-btn');
+            var nav = document.querySelector('header nav');
+            var overlay = document.getElementById('nav-overlay');
+            if (!btn || !nav || !overlay) return;
+
+            function openMenu() {
+                btn.classList.add('open');
+                nav.classList.add('open');
+                overlay.classList.add('open');
+                btn.setAttribute('aria-expanded', 'true');
+                document.body.style.overflow = 'hidden';
+            }
+            function closeMenu() {
+                btn.classList.remove('open');
+                nav.classList.remove('open');
+                overlay.classList.remove('open');
+                btn.setAttribute('aria-expanded', 'false');
+                document.body.style.overflow = '';
+            }
+
+            btn.addEventListener('click', function() {
+                if (nav.classList.contains('open')) closeMenu(); else openMenu();
+            });
+            overlay.addEventListener('click', closeMenu);
+            // Close on nav link click (mobile)
+            nav.querySelectorAll('a').forEach(function(a) {
+                a.addEventListener('click', closeMenu);
+            });
+            // Close on Escape key
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') closeMenu();
+            });
+        })();
+    </script>
+</body>
+</html>
