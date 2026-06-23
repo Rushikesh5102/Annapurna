@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>अन्नपूर्णा (Annapurna) - language Filter</title> 
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    </head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="container">
+            <img src="logo.png" alt="Annapurna Logo" class="logo"> <!-- Logo -->
+            <h1>Language Filter)</h1> <!-- Title -->
+            <nav>
+              <a href="index.html"><i class="fas fa-home"></i> Home</a>
+              <a href="Menu.html"><i class="fas fa-utensils"></i> Menu</a>
+              <a href="Spices.html"><i class="fas fa-pepper-hot"></i> Spices</a>
+              <a href="Chefs.html"><i class="fas fa-user-tie"></i> Chefs</a>
+              <a href="recipes.html"><i class="fas fa-book-open"></i> Recipes</a>
+              <a href="order-tracking.html"><i class="fas fa-map-marker-alt"></i> Track Order</a>
+              <a href="Checkout.html"><i class="fas fa-shopping-cart"></i> Checkout</a>
+              <a href="about.html"><i class="fas fa-info-circle"></i> About</a>
+              <a href="contact.html"><i class="fas fa-envelope"></i> Contact</a>
+              <a href="login-registration.html"><i class="fas fa-sign-in-alt"></i> Sign In</a>
+            </nav>
+
+            <style>
+              /* General Styles */
+              body {
+                font-family: Arial, sans-serif;
+                margin: 0;
+                padding: 0;
+                background-color: #f9f9f9;
+                color: #333;
+              }
+          
+              /* Language Filter Styles */
+              .language-filter {
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                background-color: #fff;
+                padding: 8px 15px;
+                border-radius: 30px;
+                box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+                cursor: pointer;
+                font-size: 0.9em;
+                display: flex;
+                align-items: center;
+              }
+          
+              .language-filter select {
+                font-size: 1em;
+                padding: 5px;
+                border-radius: 5px;
+                border: 1px solid #ddd;
+                cursor: pointer;
+                background-color: #ffffff;
+              }
+          
+              .language-filter select:focus {
+                outline: none;
+                border-color: #1abc9c;
+              }
+          
+              /* Content Styling for Example */
+              .content {
+                padding: 20px;
+                text-align: center;
+              }
+          
+              .content h1 {
+                color: #1abc9c;
+              }
+          
+              .content p {
+                font-size: 1.2em;
+              }
+          
+              button {
+                padding: 10px 20px;
+                border: none;
+                border-radius: 5px;
+                background-color: #1abc9c;
+                color: white;
+                cursor: pointer;
+                font-size: 1em;
+                transition: background-color 0.3s;
+              }
+          
+              button:hover {
+                background-color: #16a085;
+              }
+            </style>
+          </head>
+          <body>
+          
+            <!-- Language Filter Dropdown -->
+            <div class="language-filter">
+              <label for="language-select">Language:</label>
+              <select id="language-select" onchange="changeLanguage()">
+                <option value="en">English</option>
+                <option value="hi">Hindi</option>
+                <option value="mr">Marathi</option>
+                <option value="ta">Tamil</option>
+                <option value="bn">Bengali</option>
+              </select>
+            </div>
+          
+            <!-- Content of the Page -->
+            <div class="content">
+              <h1>Home</h1>
+              <p>Welcome to the Menu! Choose your favorite dishes.</p>
+              <button>Order Now</button>
+            </div>
+          
+            <script>
+              // Translation keys for each language
+              const translations = {
+                en: {
+                  home: "Home",
+                  welcome_to_the_menu: "Welcome to the Menu! Choose your favorite dishes.",
+                  order_now: "Order Now",
+                },
+                hi: {
+                  home: "होम",
+                  welcome_to_the_menu: "मेनू में आपका स्वागत है! अपने पसंदीदा व्यंजन चुनें।",
+                  order_now: "अभी आदेश दें",
+                },
+                mr: {
+                  home: "मुखपृष्ठ",
+                  welcome_to_the_menu: "मेनू मध्ये आपले स्वागत आहे! आपल्या आवडत्या पदार्थांचा चयन करा.",
+                  order_now: "आता ऑर्डर करा",
+                },
+                ta: {
+                  home: "முகப்பு",
+                  welcome_to_the_menu: "மெனுவுக்கு வரவேற்கின்றோம்! உங்கள் விருப்பமான உணவுகளைத் தேர்ந்தெடுக்கவும்.",
+                  order_now: "இப்போது ஆர்டர் செய்யவும்",
+                },
+                bn: {
+                  home: "হোম",
+                  welcome_to_the_menu: "মেনুতে স্বাগতম! আপনার পছন্দসই খাবার বেছে নিন।",
+                  order_now: "এখন অর্ডার করুন",
+                },
+              };
+          
+              // Function to change the language of the entire page
+              function changeLanguage() {
+                const selectedLanguage = document.getElementById("language-select").value;
+                applyLanguage(selectedLanguage);
+              }
+          
+              // Function to apply translations to the page
+              function applyLanguage(lang) {
+                // Translate all text content
+                const elements = document.body.getElementsByTagName('*');
+                
+                // Loop through all elements and change their text content
+                for (let el of elements) {
+                  if (el.children.length === 0 && el.innerText.trim() !== "") {
+                    // Check if the element's text matches any translation key
+                    for (let key in translations[lang]) {
+                      if (el.innerText.trim() === translations.en[key]) {
+                        el.innerText = translations[lang][key];
+                      }
+                    }
+                  }
+                }
+              }
+          
+              // Apply the default language on page load (optional)
+              document.addEventListener("DOMContentLoaded", () => {
+                applyLanguage('en'); // Set default language to English
+              });
+            </script>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="container">
+            <nav>
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="terms.html">Terms of Service</a>
+            <div class="social-media">
+                <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook" width="30" height="30"></a>
+                <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" alt="Twitter" width="30" height="30"></a>
+                <a href="https://www.instagram.com/authentic_annapurna?igsh=MW9jNXo0MTRvOWxpNQ== "><img src="https://cdn-icons-png.flaticon.com/512/733/733558.png" alt="Instagram" width="30" height="30"></a>
+                <a href="mailto:Rushikesh.pattiwar.@adypu.edu.in"><img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="Gmail" width="30" height="30"></a>
+                <a href="https://www.linkedin.com/in/rushikeshpattiwar?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3B7%2Brsoo3yTKGeJOFca3PynQ%3D%3D" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/145/145807.png" alt="LinkedIn" width="30" height="30"></a>
+                <a href="tel:+91-9373095149"><img src="https://cdn-icons-png.flaticon.com/512/724/724664.png" alt="Contact" width="30" height="30"></a>       
+            </div>
+            </nav>
+        </div>
+        <p>&copy; 2024 Annapurna. All rights reserved.</p>
+    </footer>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
